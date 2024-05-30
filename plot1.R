@@ -3,6 +3,7 @@ library(pacman)
 p_load(tidyverse, lubridate)
 
 
+
 data <- read_delim("household_power_consumption.txt", 
                    delim = ";", escape_double = FALSE, 
                    col_types = cols(Date = col_character(), 
@@ -14,6 +15,7 @@ data <- read_delim("household_power_consumption.txt",
         filter(Date %in%c("1/2/2007","2/2/2007")) %>%  
         mutate(complete_date =  dmy_hms(paste(Date,Time))  )
 
+par(mfrow=c(1,1))
 
 with(data, hist(Global_active_power, xlab="Global Active Power (kilowatts)", 
                                       main= "Global Active Power",col="red"))

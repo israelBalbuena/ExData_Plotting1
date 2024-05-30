@@ -16,11 +16,12 @@ data <- read_delim("household_power_consumption.txt",
                  dayw = wday(Date))
 
 
+par(mfrow=c(1,1))
+
 
 with(data, plot(complete_date,Global_active_power, "l",
                 xlab="",
                 ylab="Global Active Power (kilowatts)",xaxt= "n" ) )
-
 axis(1, at=c(ymd_hms("2007-02-01 00:00:00"),ymd_hms("2007-02-02 00:00:00"),
              ymd_hms("2007-02-03 00:00:00")), labels = c("Thu","Fri","Sat") )
 

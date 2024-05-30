@@ -15,9 +15,7 @@ data <- read_delim("household_power_consumption.txt",
   mutate(complete_date =  dmy_hms(paste(Date,Time))  )
 
 
-
-par(mfrow=c(2,2),cex=.64)
-
+par(mfrow=c(2,2),mar=c(5,4,4,2), cex=0.45)
 
 
 ### FIRST ###
@@ -48,8 +46,10 @@ legend("topright",
        legend = c("Sub_metering_1","Sub_metering_2",
                   "Sub_metering_3"), 
         col=c("black","red","blue"),
-       lty=c(1,1,1), text.font = 2,
-       box.lwd = "" )
+       lty=c(1,1,1),
+       inset=c(0.3,0.02),
+       text.width = 0.5,
+       box.lwd = ""  )
 
 
 ### FOURTH ####
@@ -62,3 +62,12 @@ axis(1, at = c(ymd_hms("2007-02-01 00:00:00"), ymd_hms("2007-02-02 00:00:00"),
 dev.copy(png, "plot4.png")
 
 dev.off()
+
+
+
+
+
+
+
+
+
